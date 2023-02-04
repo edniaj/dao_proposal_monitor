@@ -12,8 +12,7 @@ Things to do
 
 '''
 
-screenshot_governance_page = [('karate-combat-stage', 'https://demo.snapshot.org/#/karate-combat-stage.eth'),
-                              ('revi', 'https://demo.snapshot.org/#/irrevi.eth'), ('dumbo', 'https://demo.snapshot.org/#/dumbo.eth')]
+screenshot_governance_page = [('Stargate DAO' ,'https://snapshot.org/#/stgdao.eth'),('Arbitrum Odyssey', 'https://snapshot.org/#/arbitrum-odyssey.eth'), ('Trader Joe','https://snapshot.org/#/joegovernance.eth')]
 
 screenshot_governance_scrape = []
 

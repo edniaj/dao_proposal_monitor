@@ -1,5 +1,6 @@
 import time
 from typing import List
+from scrape import ScreenshotWebsite
 
 class IRoutineTask:
     def run_task(self):
@@ -44,6 +45,7 @@ class RoutineTask:
 class RoutineController:
     
     def __init__(self):
+        # use a hashtable instead
         self.task_list : List[RoutineTask] = []
     
     def add_routine_task(self, _callback, _interval):
@@ -63,11 +65,3 @@ class RoutineController:
         
 
 
-controller = RoutineController()
-'''
-
-'''
-# c.add_routine_task( lambda:print('hello3'), 3)
-# c.add_routine_task( lambda:print('hello1'), 1)
-
-controller.run_controller()

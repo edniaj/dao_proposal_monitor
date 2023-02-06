@@ -44,7 +44,7 @@ class ScreenshotWebsite(Website):
 
     '''
 
-    def click_on_filter_button(self, _driver):
+    def __click_on_filter_button(self, _driver):
         # click on filter dropdown menu
         xpath_filter_dropdown_button = "//div[@class='relative mb-3 flex px-3 md:px-0']//button[@class='button px-[22px] flex items-center']"
         _driver.find_element(
@@ -56,7 +56,7 @@ class ScreenshotWebsite(Website):
         _driver.find_element(
             by=By.XPATH, value=xpath_filter_active_button).click()
 
-    def initialise_active_proposals_storage(self):
+    def __initialise_active_proposals_storage(self):
         '''
         Display is from pyvirtualdisplay, allows us to run headless browser
         '''
@@ -74,7 +74,7 @@ class ScreenshotWebsite(Website):
             # FILTER dropdown menu
             self.wait_for_element_to_appear(
                 driver, self.xpath_to_proposal_cards)
-            self.click_on_filter_button(driver)
+            self.__click_on_filter_button(driver)
 
             # Find PROPOSAL CARDS
             self.wait_for_element_to_appear(
@@ -131,7 +131,7 @@ class ScreenshotWebsite(Website):
         self.xpath_to_proposal_cards = "//div[@class='my-4 space-y-4']//div[contains(@class, 'border-y border-skin-border')]"
         self.active_proposals = {}
 
-        self.initialise_active_proposals_storage()
+        self.__initialise_active_proposals_storage()
         print(f'Done Initializing for {self.name}\n this is the new self.active_proposals{self.active_proposals}')
 
     def check_for_new_post(self):
@@ -151,7 +151,7 @@ class ScreenshotWebsite(Website):
             # FILTER dropdown menu
             self.wait_for_element_to_appear(
                 driver, self.xpath_to_proposal_cards)
-            self.click_on_filter_button(driver)
+            self.__click_on_filter_button(driver)
 
             # Find PROPOSAL CARDS
             self.wait_for_element_to_appear(

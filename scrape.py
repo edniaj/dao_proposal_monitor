@@ -5,18 +5,20 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import time
+import os
+from dotenv import load_dotenv
 
-
-'''
-We are using json to store, not database
-
-When proposal concludes, you need to routinely check for these proposals
-We need to store the url
+load_dotenv()
 
 '''
+@jd 04-03-2023 
+Simple routine
+Just initialise active_proposals to store all the active proposals.
+Doesn't check for conclusion, just check for new proposals
 
-temp_website = 'https://demo.snapshot.org/#/dumbo.eth'
+'''
+
+
 
 
 class Website(ABC):
@@ -61,7 +63,9 @@ class ScreenshotWebsite(Website):
         Display is from pyvirtualdisplay, allows us to run headless browser
         '''
         options = webdriver.ChromeOptions()
-        options.add_argument('--headless')
+        
+        # Comment --headless when testing, otherwise it will not display anything
+        # options.add_argument('--headless')
 
         self.active_proposals = {}
 
@@ -198,5 +202,6 @@ class ScreenshotWebsite(Website):
         finally:
             driver.quit()
 
+# temp_website = 'https://demo.snapshot.org/#/dumbo.eth'
 
-# ScreenshotWebsite(_url=temp_website, _chromedriver_path='C:\path\chromedriver_win32\chromedriver.exe').check_for_new_post()
+# ScreenshotWebsite(_url=temp_website, _chromedriver_path=os.getenv('DRIVER_PATH')).check_for_new_post()

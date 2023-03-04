@@ -15,7 +15,7 @@ Things to do
 screenshot_governance_page = [('karate-combat-stage', 'https://demo.snapshot.org/#/karate-combat-stage.eth'),
                               ('revi', 'https://demo.snapshot.org/#/irrevi.eth'), ('dumbo', 'https://demo.snapshot.org/#/dumbo.eth')]
 
-screenshot_governance_scrape = []
+
 
 for each_governance_page in screenshot_governance_page:
 
@@ -23,7 +23,6 @@ for each_governance_page in screenshot_governance_page:
         _name= each_governance_page[0],
         _url=each_governance_page[1],
         _chromedriver_path='C:\path\chromedriver_win32\chromedriver.exe')
-    screenshot_governance_scrape.append(scrape_screenshot_website)
 
     controller.add_routine_task(
         scrape_screenshot_website.check_for_new_post, 5)
